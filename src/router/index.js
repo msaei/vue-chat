@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Welcome from '@/components/Welcome'
 import Chat from '@/components/Chat'
+import { runInNewContext } from 'vm';
 
 Vue.use(Router)
 
@@ -15,7 +16,14 @@ export default new Router({
             path: '/chat',
             name: 'Chat',
             component: Chat,
-            props: true
+            props: true,
+            beforeEnter: (to, from, next) => {
+                if (to.params.name) {
+                    next()
+                } else {
+                    next({ name: 'Welcome' })
+                }
+            }
         }
     ]
 })
