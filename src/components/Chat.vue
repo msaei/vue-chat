@@ -3,7 +3,7 @@
     <h2 class="center teal-text">Chat Room</h2>
     <div class="card">
       <div class="card-content">
-        <ul class="messages">
+        <ul class="messages" v-chat-scroll>
           <li v-for="message in messages" :key="message.id">
             <span class="teal-text">{{message.name}}</span>
             <span class="gray-taxt text-darken-3">{{message.message}}</span>
@@ -62,7 +62,11 @@ export default {
 }
 .chat .time {
   display: block;
-  font-size: 1.2em;
+  font-size: 0.8em;
+}
+.chat .messages {
+  max-height: 300px;
+  overflow: auto;
 }
 </style>
 
