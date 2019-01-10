@@ -11,7 +11,7 @@
           </li>
         </ul>
         <div class="card-action">
-          <input type="text">
+          <NewMessage :name="name"/>
         </div>
       </div>
     </div>
@@ -19,8 +19,12 @@
 </template>
 
 <script>
+import NewMessage from "@/components/NewMessage";
 export default {
   name: "Chat",
+  components: {
+    NewMessage
+  },
   props: ["name"],
   data() {
     return {};
