@@ -21,6 +21,7 @@
 <script>
 import NewMessage from "@/components/NewMessage";
 import db from "@/firebase/init";
+import moment from "moment";
 export default {
   name: "Chat",
   components: {
@@ -42,7 +43,7 @@ export default {
             id: doc.id,
             name: doc.data().name,
             message: doc.data().content,
-            time: doc.data().time
+            time: moment(doc.data().time).format("lll")
           });
         }
       });
